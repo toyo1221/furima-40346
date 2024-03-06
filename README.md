@@ -32,7 +32,7 @@
 |user                |references |null:false, foreign_key: true |
 
 ### Association
-has_one :orders
+has_one :order
 belongs_to :user
 
 
@@ -56,11 +56,11 @@ belongs_to :user
 | -------------------| --------- | ----------- |
 |order               |references |null:false, foreign_key: true |
 |post_code           |string     |null:false   |
-|prefecture_id      |string     |null:false   |
+|prefecture_id       |integer    |null:false   |
 |municipalities      |string     |null:false   |
 |street_address      |string     |null:false   |
-|Building_name       |string     |             |
+|building_name       |string     |             |
 |telephone_number    |string     |null:false   |
 
 ### Association
-has__one :order
+belongs_to :order
