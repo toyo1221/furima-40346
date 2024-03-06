@@ -14,7 +14,7 @@
 |birthday            |date       |null:false   |
 
 ### Association
- has_many :order_details
+ has_many :orders
  has_many :items
 
 ## itemsテーブル
@@ -26,14 +26,14 @@
 |category_id         | integer   | null: false |
 |situation_id        | integer   | null: false |
 |delivery_charge_id  | integer   | null: false |
-|prefectures_id      | integer   | null: false |
-|delivery_days_id    | integer   | null: false |
+|prefecture_id      | integer   | null: false |
+|delivery_day_id    | integer   | null: false |
 |price               |integer    |null:false   |
 |user                |references |null:false, foreign_key: true |
 
 ### Association
-has_many :order_details, through: :orders
-belongs_to :users
+has_one :orders
+belongs_to :user
 
 
 
@@ -45,8 +45,9 @@ belongs_to :users
 |item                |references |null:false, foreign_key: true |
 
 ### Association
-belongs_to :items
-belongs_to :order_details
+belongs_to :item
+has_one :order_detail
+belongs_to :user
 
 
 ## order_details
@@ -55,11 +56,11 @@ belongs_to :order_details
 | -------------------| --------- | ----------- |
 |order               |references |null:false, foreign_key: true |
 |post_code           |string     |null:false   |
-|prefectures_id      |string     |null:false   |
+|prefecture_id      |string     |null:false   |
 |municipalities      |string     |null:false   |
 |street_address      |string     |null:false   |
 |Building_name       |string     |             |
 |telephone_number    |string     |null:false   |
 
 ### Association
-has__many :items, through: :orders
+has__one :order
