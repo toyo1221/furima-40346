@@ -127,9 +127,8 @@
       新規投稿商品
     </div>
     <ul class='item-lists'>
-      <li class='list'>
   <% @items.each do |item| %>
-    <li class='list' style='flex: 1; margin-right: 10px;'>
+    <li class='list'>
       <%= link_to "#" do %>
         <div class='item-img-content'>
           <%= image_tag item.image, class: 'item-img' %>
@@ -147,10 +146,10 @@
           </h3>
           <div class='item-price'>
             <span><%= item.price %>円<br><%= item.delivery_charge.name %></span>
-            <%# <div class='star-btn'>
+            <div class='star-btn'>
               <%= image_tag "star.png", class:"star-icon" %>
-              <%# <span class='star-count'>0</span>
-            </div> %>
+              <span class='star-count'>0</span>
+            </div>
           </div>
         </div>
       <% end %>
