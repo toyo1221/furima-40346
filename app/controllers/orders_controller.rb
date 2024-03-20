@@ -4,7 +4,11 @@ class OrdersController < ApplicationController
 
   def index
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
-    @order_form = OrderForm.new
+    if @item.order.present?
+      redirect_to root_path
+    else
+      @order_form = OrderForm.new
+    end
   end
 
   def create
